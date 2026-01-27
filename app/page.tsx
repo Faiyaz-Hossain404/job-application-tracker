@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import { ArrowRight } from "lucide-react";
 
 export default function Home() {
   return (
@@ -18,9 +19,11 @@ export default function Home() {
                 className="bg-black hover:bg-gray-700 h-12 px-8 text-lg font-medium"
                 size="lg"
               >
-                Start for free
+                Start for free <ArrowRight className="ml-2" />
               </Button>
-              <p>Free foreven. No credit card required</p>
+              <p className="text-sm text-muted-foreground">
+                Free foreven. No credit card required
+              </p>
             </div>
           </div>
         </section>
