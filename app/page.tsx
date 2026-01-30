@@ -17,10 +17,7 @@ export default function Home() {
             </p>
             <div className="flex flex-col items-center gap-4">
               <Link href="/sign-up">
-                <Button
-                  className="bg-black hover:bg-gray-700 h-12 px-8 text-lg font-medium"
-                  size="lg"
-                >
+                <Button className="h-12 px-8 text-lg font-medium" size="lg">
                   Start for free <ArrowRight className="ml-2" />
                 </Button>
               </Link>
