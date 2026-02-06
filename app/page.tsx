@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 
 export default function Home() {
@@ -24,6 +25,40 @@ export default function Home() {
               <p className="text-sm text-muted-foreground">
                 Free forever. No credit card required
               </p>
+            </div>
+          </div>
+        </section>
+
+        {/* Hero image section with tabs */}
+        <section className="border-t bg-whites py-16">
+          <div className="container px-4 mx-auto">
+            <div className="mx-auto max-w-6xl">
+              {/* the tabs */}
+              <div className="flex gap-2 justify-center mb-8">
+                <Button>Organize Applications</Button>
+                <Button>Get Hired</Button>
+                <Button>Manage Boards</Button>
+              </div>
+              <div>
+                <Image
+                  src="/hero-images/hero1.png"
+                  alt="Organize Applications"
+                  width={1200}
+                  height={800}
+                />
+                <Image
+                  src="/hero-images/hero2.png"
+                  alt="Get Hired"
+                  width={1200}
+                  height={800}
+                />
+                <Image
+                  src="/hero-images/hero3.png"
+                  alt="Manage Boards"
+                  width={1200}
+                  height={800}
+                />
+              </div>
             </div>
           </div>
         </section>
