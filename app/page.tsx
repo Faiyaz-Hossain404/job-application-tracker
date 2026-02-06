@@ -39,7 +39,7 @@ export default function Home() {
                 <Button>Get Hired</Button>
                 <Button>Manage Boards</Button>
               </div>
-              <div>
+              <div className="relative mx-auto max-w-5xl overflow-hidden border border-gray-200 rounded-lg shadow-xl">
                 <Image
                   src="/hero-images/hero1.png"
                   alt="Organize Applications"
