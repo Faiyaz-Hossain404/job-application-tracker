@@ -1,11 +1,7 @@
-"use client";
-
 import ImageTabs from "@/components/image-tabs";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
-// import Image from "next/image";
 import Link from "next/link";
-// import { useState } from "react";
 
 export default function Home() {
   return (
