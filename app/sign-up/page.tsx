@@ -16,42 +16,70 @@ import Link from "next/link";
 export default function SignUp() {
   return (
     <div className="flex min-h-[calc(100vh-4rm)] items-center justify-center bg-white p-4">
-      <Card>
-        <CardHeader>
-          <CardTitle>Sign UP</CardTitle>
-          <CardDescription>
+      <Card className="w-full max-w-md border-gray-200 shadow-lg">
+        <CardHeader className="space-y-1">
+          <CardTitle className="text-2xl font-bold text-black">
+            Sign UP
+          </CardTitle>
+          <CardDescription className="text-gray-600">
             Create an account to start tracking your job application
           </CardDescription>
         </CardHeader>
-        <form>
-          <CardContent>
-            <div>
-              <Label htmlFor="name">Name</Label>
-              <Input id="name" type="text" placeholder="John Doe" required />
+        <form className="space-y-4">
+          <CardContent className="space-y-4">
+            <div className="space-y-2">
+              <Label htmlFor="name" className="text-gray-700">
+                Name
+              </Label>
+              <Input
+                id="name"
+                type="text"
+                placeholder="John Doe"
+                required
+                className="border-gray-300 focus:border-primary focus:ring-primary"
+              />
             </div>
-            <div>
-              <Label htmlFor="email">Email</Label>
+            <div className="space-y-2">
+              <Label htmlFor="email" className="text-gray-700">
+                Email
+              </Label>
               <Input
                 id="email"
                 type="email"
                 placeholder="johnDoe@example.com"
                 required
+                className="border-gray-300 focus:border-primary focus:ring-primary"
               />
             </div>
-            <div>
-              <Label htmlFor="password">Password</Label>
+            <div className="space-y-2">
+              <Label htmlFor="password" className="text-gray-700">
+                Password
+              </Label>
               <Input
                 id="password"
                 type="password"
-                placeholder="*******"
+                placeholder="********"
                 required
+                minLength={8}
+                className="border-gray-300 focus:border-primary focus:ring-primary"
               />
             </div>
           </CardContent>
-          <CardFooter>
-            <Button type="submit">Sign UP</Button>
+          <CardFooter className="flex flex-col space-y-4">
+            <Button
+              type="submit"
+              className="w-full bg-primary hover:bg-primary/90"
+            >
+              Sign UP
+            </Button>
             <p>
-              Already have an account? <Link href="/sign-in">Sign in</Link>
+              Already have an account?{" "}
+              <Link
+                href="/sign-in"
+                className="font-medium text-primary hover:underline"
+              >
+                Sign in
+              </Link>
             </p>
           </CardFooter>
         </form>
