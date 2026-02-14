@@ -19,7 +19,7 @@ export default function SignUp() {
       <Card className="w-full max-w-md border-gray-200 shadow-lg">
         <CardHeader className="space-y-1">
           <CardTitle className="text-2xl font-bold text-black">
-            Sign UP
+            Sign Up
           </CardTitle>
           <CardDescription className="text-gray-600">
             Create an account to start tracking your job application
@@ -70,7 +70,7 @@ export default function SignUp() {
               type="submit"
               className="w-full bg-primary hover:bg-primary/90"
             >
-              Sign UP
+              Sign Up
             </Button>
             <p>
               Already have an account?{" "}
