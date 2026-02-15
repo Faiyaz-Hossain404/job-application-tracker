@@ -11,7 +11,9 @@ import {
 } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { signUp } from "@/lib/auth/auth-client";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 
 export default function SignUp() {
@@ -21,6 +23,7 @@ export default function SignUp() {
 
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
+  const router = useRouter();
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
@@ -29,6 +32,17 @@ export default function SignUp() {
     setLoading(true);
 
     try {
+      const result = await signUp.email({
+        name,
+        email,
+        password,
+      });
+
+      if (!result) {
+        setError("Failed to sign up");
+      } else {
+        router.push("/dashboard");
+      }
     } catch (err) {
       setError("An unexpected error occured");
       console.error(err);
@@ -48,6 +62,11 @@ export default function SignUp() {
           </CardDescription>
         </CardHeader>
         <form onSubmit={handleSubmit} className="space-y-4">
+          {error && (
+            <div className="rounded-md bg-destructivee/15 p-3 text-sm text-destructive">
+              {error}
+            </div>
+          )}
           <CardContent className="space-y-4">
             <div className="space-y-2">
               <Label htmlFor="name" className="text-gray-700">
@@ -97,8 +116,9 @@ export default function SignUp() {
             <Button
               type="submit"
               className="w-full bg-primary hover:bg-primary/90"
+              disabled={loading}
             >
-              Sign Up
+              {loading ? "Creating account..." : "Sign Up"}
             </Button>
             <p>
               Already have an account?{" "}
