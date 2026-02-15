@@ -38,8 +38,8 @@ export default function SignUp() {
         password,
       });
 
-      if (!result) {
-        setError("Failed to sign up");
+      if (result.error) {
+        setError(result.error.message ?? "Failed to sign up");
       } else {
         router.push("/dashboard");
       }
@@ -63,7 +63,7 @@ export default function SignUp() {
         </CardHeader>
         <form onSubmit={handleSubmit} className="space-y-4">
           {error && (
-            <div className="rounded-md bg-destructivee/15 p-3 text-sm text-destructive">
+            <div className="rounded-md bg-destructive/15 p-3 text-sm text-destructive">
               {error}
             </div>
           )}
@@ -120,7 +120,7 @@ export default function SignUp() {
             >
               {loading ? "Creating account..." : "Sign Up"}
             </Button>
-            <p>
+            <p className="text-center text-sm text-gray-600">
               Already have an account?{" "}
               <Link
                 href="/sign-in"
