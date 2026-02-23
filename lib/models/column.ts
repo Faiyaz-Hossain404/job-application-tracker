@@ -21,10 +21,15 @@ const BoardSchema = new Schema<IColumn>(
       required: true,
       index: true,
     },
-    order: [
+    order: {
+      type: Number,
+      required: true,
+      default: 0,
+    },
+    jobApplications: [
       {
-        type: Number,
-        ref: "Column",
+        type: Schema.Types.ObjectId,
+        ref: "JobApplication",
       },
     ],
   },
