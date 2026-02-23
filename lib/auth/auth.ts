@@ -27,16 +27,6 @@ export const auth = betterAuth({
       },
     },
   },
-
-  databaseHooks: {
-    user: {
-      create: {
-        after: async (user) => {
-          if (user.id) await initializeUserBoard(user.id);
-        },
-      },
-    },
-  },
 });
 
 export async function getSession() {
