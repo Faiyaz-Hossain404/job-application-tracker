@@ -68,7 +68,7 @@ function DroppableColumn({
           </div>
           <DropdownMenu>
             <DropdownMenuTrigger>
-              <Button asChild>
+              <Button variant="ghost" asChild>
                 <MoreVertical />
               </Button>
             </DropdownMenuTrigger>
