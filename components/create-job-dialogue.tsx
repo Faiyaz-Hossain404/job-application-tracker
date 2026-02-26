@@ -6,12 +6,14 @@ import {
   Dialog,
   DialogContent,
   DialogDescription,
+  DialogFooter,
   DialogHeader,
   DialogTitle,
   DialogTrigger,
 } from "./ui/dialog";
 import { Label } from "./ui/label";
 import { Input } from "./ui/input";
+import { Textarea } from "./ui/textarea";
 
 interface CreateJobApplicationDialogueProps {
   columnId: string;
@@ -58,7 +60,33 @@ export default function CreateJobApplicationDialogue({
                   <Input id="salary" placeholder="e.g. $100k-$150k" required />
                 </div>
               </div>
+              <div className="space-y-2">
+                <Label htmlFor="jobUrl">Job URL</Label>
+                <Input id="jobUrl" placeholder="https:/..." required />
+              </div>
+              <div className="space-y-2">
+                <Label htmlFor="tags">Tags</Label>
+                <Input id="tags" placeholder="e.g. Tech, Business" required />
+              </div>
+              <div className="space-y-2">
+                <Label htmlFor="description">Description</Label>
+                <Textarea
+                  id="description"
+                  placeholder="Short description of the role..."
+                  rows={3}
+                />
+              </div>
+              <div className="space-y-2">
+                <Label htmlFor="notes">Notes</Label>
+                <Textarea id="notes" rows={4} />
+              </div>
             </div>
+            <DialogFooter className="mt-4">
+              <Button type="button" variant="outline">
+                Cancel
+              </Button>
+              <Button type="submit">Add Application</Button>
+            </DialogFooter>
           </form>
         </DialogContent>
       </Dialog>
