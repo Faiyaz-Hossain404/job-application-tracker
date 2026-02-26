@@ -11,7 +11,7 @@ import {
   XCircle,
 } from "lucide-react";
 import React from "react";
-import { Card, CardHeader, CardTitle } from "./ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "./ui/card";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -94,6 +94,9 @@ function DroppableColumn({
           </DropdownMenu>
         </div>
       </CardHeader>
+      <CardContent className="space-y-2 pt-4 bg-gray-50/50 min-h-100 rounded-b-lg">
+        <CreateJobApplicationDialogue />
+      </CardContent>
     </Card>
   );
 }
