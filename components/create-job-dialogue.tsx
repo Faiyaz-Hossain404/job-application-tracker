@@ -15,6 +15,7 @@ import { Label } from "./ui/label";
 import { Input } from "./ui/input";
 import { Textarea } from "./ui/textarea";
 import React, { useState } from "react";
+import connectDB from "@/lib/db";
 
 interface CreateJobApplicationDialogueProps {
   columnId: string;
@@ -39,6 +40,11 @@ export default function CreateJobApplicationDialogue({
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
+
+    try {
+    } catch (err) {
+      console.error(err);
+    }
   }
 
   return (
