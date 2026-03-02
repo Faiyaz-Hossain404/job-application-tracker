@@ -11,7 +11,7 @@ interface JobApplicationData {
   salary?: string;
   jobUrl?: string;
   columnId: string;
-  boardId?: string;
+  boardId: string;
   tags?: string[];
   description?: string;
 }
@@ -37,4 +37,8 @@ export async function createJobApplication(data: JobApplicationData) {
     tags,
     description,
   } = data;
+
+  if (!company || !position || !columnId || !boardId) {
+    return { error: "Missing required fields" };
+  }
 }
