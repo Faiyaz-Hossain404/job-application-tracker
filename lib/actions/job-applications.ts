@@ -88,5 +88,5 @@ export async function createJobApplication(data: JobApplicationData) {
     $push: { jobApplications: jobApplication._id },
   });
 
-  return { data: jobApplication };
+  return { data: JSON.parse(JSON.stringify(jobApplication)) };
 }
