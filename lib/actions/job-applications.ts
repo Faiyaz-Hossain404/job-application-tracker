@@ -77,6 +77,7 @@ export async function createJobApplication(data: JobApplicationData) {
     jobUrl,
     columnId,
     boardId,
+    userId: session.user.id,
     tags: tags || [],
     description,
     status: "applied",
