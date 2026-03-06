@@ -63,7 +63,8 @@ function DroppableColumn({
   config: ColConfig;
   boardId: string;
 }) {
-  console.log(column);
+  const sortedJobs =
+    column.jobApplications?.sort((a, b) => a.order - b.order) || [];
   return (
     <Card className="min-w-75 shrink-0 shadow-md p-0">
       <CardHeader
@@ -104,6 +105,7 @@ function DroppableColumn({
 
 export default function KanbanBoard({ board, userId }: KanbanBoardProps) {
   const columns = board.columns;
+  console.log(columns[0].jobApplications);
   return (
     <div>
       <div>
