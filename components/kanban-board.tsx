@@ -20,11 +20,15 @@ import {
 } from "./ui/dropdown-menu";
 import { Button } from "./ui/button";
 import CreateJobApplicationDialogue from "./create-job-dialogue";
-import { JobApplicationData } from "@/lib/types/jobApplication.types";
+import SortableJobsCard from "./sortable-job-card";
 
 interface KanbanBoardProps {
   board: Board;
   userId: string;
+}
+
+interface ColumnWithOrder extends Column {
+  order: number;
 }
 
 interface ColConfig {
@@ -59,10 +63,12 @@ function DroppableColumn({
   column,
   config,
   boardId,
+  sortedColumns,
 }: {
   column: Column;
   config: ColConfig;
   boardId: string;
+  sortedColumns: Column[];
 }) {
   const jobsArray = Array.isArray(column.jobApplications)
     ? column.jobApplications
@@ -101,6 +107,14 @@ function DroppableColumn({
         </div>
       </CardHeader>
       <CardContent className="space-y-2 pt-4 bg-gray-50/50 min-h-100 rounded-b-lg">
+        {sortedJobs.map((job, key) => (
+          <SortableJobsCard
+            key={key}
+            job={{ ...job, columnId: job.columnId }}
+            columns={sortedColumns}
+          />
+        ))}
+
         <CreateJobApplicationDialogue columnId={column._id} boardId={boardId} />
       </CardContent>
     </Card>
@@ -109,7 +123,10 @@ function DroppableColumn({
 
 export default function KanbanBoard({ board, userId }: KanbanBoardProps) {
   const columns = board.columns;
-  console.log(columns[0].jobApplications);
+
+  const sortedColumns =
+    (columns as ColumnWithOrder[])?.sort((a, b) => a.order - b.order) || [];
+
   return (
     <div>
       <div>
@@ -124,6 +141,7 @@ export default function KanbanBoard({ board, userId }: KanbanBoardProps) {
               column={col}
               config={config}
               boardId={board._id}
+              sortedColumns={sortedColumns}
             />
           );
         })}
