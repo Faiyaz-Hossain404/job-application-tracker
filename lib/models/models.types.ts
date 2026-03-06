@@ -7,6 +7,8 @@ export interface JobApplication {
   notes?: string;
   salary: string;
   jobUrl?: string;
+  order: number;
+  columnId?: string;
   appliedDate?: Date;
   tags?: string[];
   description?: string;
@@ -15,7 +17,8 @@ export interface JobApplication {
 export interface Column {
   _id: string;
   name: string;
-  jobApplications: JobApplication;
+  order: number;
+  jobApplications: JobApplication[];
 }
 
 export interface Board {
