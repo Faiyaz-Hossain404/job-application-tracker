@@ -20,6 +20,7 @@ import {
 } from "./ui/dropdown-menu";
 import { Button } from "./ui/button";
 import CreateJobApplicationDialogue from "./create-job-dialogue";
+import { JobApplicationData } from "@/lib/types/jobApplication.types";
 
 interface KanbanBoardProps {
   board: Board;
@@ -63,8 +64,11 @@ function DroppableColumn({
   config: ColConfig;
   boardId: string;
 }) {
-  const sortedJobs =
-    column.jobApplications?.sort((a, b) => a.order - b.order) || [];
+  const jobsArray = Array.isArray(column.jobApplications)
+    ? column.jobApplications
+    : [column.jobApplications].filter(Boolean);
+
+  const sortedJobs = jobsArray.sort((a, b) => a.order - b.order) || [];
   return (
     <Card className="min-w-75 shrink-0 shadow-md p-0">
       <CardHeader
